@@ -1,0 +1,131 @@
+<div class="row">
+	
+	<!-- LEFT PANEL -->
+	<div class="col-md-offset-1 col-md-4">
+
+		<div class="list-group">
+				<!-- SEARCH TOOL -->
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon">
+							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+						</div>
+			      <input type="text" ng-model="searchMetric" class="form-control" placeholder="Search">
+			    </div>	
+				</div>
+				
+				<!-- METRIC LIST -->	
+				<a ng-repeat="metric in metrics | filter: {title: searchMetric} | orderBy: 'metric.rank':true" ng-href="#/browse/{{metric.$id}}">
+					<div class="list-group-item">
+				        <div class="row-content">
+				            <h4 class="list-group-item-heading">{{metric.name | limitTo:25}}{{ metric.name.length > 25? "..." : ""}}</h4>
+				            <span class="list-group-item-text">
+				            	<span am-time-ago="metric.datetime"></span>
+				            </span>		            
+				        </div>
+				    </div>		    
+			    	<div class="list-group-separator"></div>
+		    	</a>
+		</div>
+
+	</div>
+
+	<!-- RIGHT PANEL -->
+	<div class="col-md-6">
+		<div ng-show="listMode">
+			<img src="images/browse.jpg" class="img-responsive img-browse">
+		</div>
+		
+		<div ng-show="!listMode">
+			
+			<!-- HEADER -->
+			<div class="row">
+				<div class="col-md-8">
+					<h3>{{ selectedMetric.name }}</h3>
+					<span>
+						Source: <a href={{selectedMetric.source}}>{{selectedMetric.source}}</a>
+					</span>								
+				</div>
+				
+				<div class="col-md-4 title">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div gogle-chart chart="chart" id="chart_div"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- DESCRIPTION -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+					    <div class="panel-heading">
+					        <h3 class="panel-title">Description</h3>
+					    </div>
+					 		<div class="panel-body">
+					        {{ selectedMetric.description }}
+					    </div>
+					</div>			
+				</div>	
+			</div>
+
+			<!-- COMMENTS -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+					    
+					    <div class="panel-heading">
+					        <h3 class="panel-title">Comments</h3>
+					    </div>
+					    
+					    <div class="panel-body">
+
+					    	<div class="title" ng-hide="comments && comments.length > 0">
+									<span>NO COMMENT ABOUT THIS METRIC</span>	
+								</div><br>
+
+								<div class="row" ng-repeat="com in comments">
+									<div class="col-md-1">					
+										<img ng-src="{{com.gravatar}}" class="img-circle comment gravatar">
+									</div>
+									<div class="col-md-11">
+										<div class="well well-sm cmt">
+											<span class="cmt-title">{{com.name}}:</span>
+											<span class="cmt-time pull-right"><span am-time-ago="com.datetime"></span></span><br>
+
+									    <span>{{com.content}}</span>
+										</div>
+									</div>									
+								</div><br>
+
+								<div class="row">
+									<div class="col-md-12">
+										<form ng-submit="addComment()">	
+
+											<div class="input-group">
+												<div class="input-group-addon">
+													<img ng-src="{{ user.profile.gravatar }}" class="img-circle comment gravatar">
+												</div>
+									      <input type="text" ng-model="content" cols="10" rows="3" class="form-control" placeholder="Comment here..." required><br>
+									    </div>
+
+											<span class="pull-right">
+												<input type="submit" class="btn btn-info" value="Comment">
+											</span>
+										</form>
+									</div>
+								</div>
+
+					    </div>
+
+					</div>			
+				</div>	
+			</div>
+			
+	</div>
+
+</div>

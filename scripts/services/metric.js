@@ -1,0 +1,18 @@
+'use strict';
+
+app.factory('Metric', function(FURL, $firebase, Auth) {
+	var ref = new Firebase(FURL);
+	var metrics = $firebase(ref.child('metrics')).$asArray();
+	var user = Auth.user;
+
+	var Metric = {
+		all: metrics,
+
+		getMetric: function(metricId) {
+			return $firebase(ref.child('metrics').child(metricId));
+		},
+	};
+
+	return Metric;
+
+});
