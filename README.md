@@ -4,6 +4,6 @@ dash for congres
 To start running
 ===
 
-1) cd to repo dir
+1. cd to repo dir
 
-2) python SimpleHTTPServer
+2. python SimpleHTTPServer
