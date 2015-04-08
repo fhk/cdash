@@ -4,6 +4,7 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Metri
 
 	$scope.searchMetric = '';		
 	$scope.metrics = Metric.all;
+	$scope.chartObject = {}
 
 	$scope.user = Auth.user;
 	$scope.signedIn = Auth.signedIn;
@@ -15,6 +16,7 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Metri
 		var chart = createChart(metric)
 		$scope.listMode = false;
 		setSelectedMetric(metric, chart);
+		$scope.chartObject = createChart(metric)
 		
 
 	}	
@@ -25,8 +27,6 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Metri
 		// Get list of comments for the selected metric
 		$scope.comments = Comment.comments(metric.$id);	
 
-		// Get chart
-		$scope.chart = chart
 	}
 	// --------------- COMMENT ---------------	
 
@@ -43,26 +43,124 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Metri
 	};
 
 	function createChart(metric) {
-
-		var data = google.visualization.arrayToDataTable([
-	          ['Year', 'Sales', 'Expenses'],
-	          ['2004',  1000,      400],
-	          ['2005',  1170,      460],
-	          ['2006',  660,       1120],
-	          ['2007',  1030,      540]
-	        ]);
-
-		var options = {
-	          title: 'Company Performance',
-	          width: '900px',
-	          height: '200px'
-	        };
-	    var chart = new google.visualization.ChartWrapper({
-	    	chartType: 'LineChart',
-	    	dataTable: data,
-	    	options: options,
-	    	containerId: 'chart_div'});
-	    return chart.draw();
+		chart = {
+				  "type": "ColumnChart",
+				  "cssStyle": "height:200px; width:300px;",
+				  "data": {
+				    "cols": [
+				      {
+				        "id": "month",
+				        "label": "Month",
+				        "type": "string",
+				        "p": {}
+				      },
+				      {
+				        "id": "laptop-id",
+				        "label": "Laptop",
+				        "type": "number",
+				        "p": {}
+				      },
+				      {
+				        "id": "desktop-id",
+				        "label": "Desktop",
+				        "type": "number",
+				        "p": {}
+				      },
+				      {
+				        "id": "server-id",
+				        "label": "Server",
+				        "type": "number",
+				        "p": {}
+				      },
+				      {
+				        "id": "cost-id",
+				        "label": "Shipping",
+				        "type": "number"
+				      }
+				    ],
+				    "rows": [
+				      {
+				        "c": [
+				          {
+				            "v": "January"
+				          },
+				          {
+				            "v": 19,
+				            "f": "42 items"
+				          },
+				          {
+				            "v": 12,
+				            "f": "Ony 12 items"
+				          },
+				          {
+				            "v": 7,
+				            "f": "7 servers"
+				          },
+				          {
+				            "v": 4
+				          }
+				        ]
+				      },
+				      {
+				        "c": [
+				          {
+				            "v": "February"
+				          },
+				          {
+				            "v": 13
+				          },
+				          {
+				            "v": 1,
+				            "f": "1 unit (Out of stock this month)"
+				          },
+				          {
+				            "v": 12
+				          },
+				          {
+				            "v": 2
+				          }
+				        ]
+				      },
+				      {
+				        "c": [
+				          {
+				            "v": "March"
+				          },
+				          {
+				            "v": 24
+				          },
+				          {
+				            "v": 0
+				          },
+				          {
+				            "v": 11
+				          },
+				          {
+				            "v": 6
+				          }
+				        ]
+				      }
+				    ]
+				  },
+				  "options": {
+				    "title": "Sales per month",
+				    "isStacked": "true",
+				    "fill": 20,
+				    "displayExactValues": true,
+				    "vAxis": {
+				      "title": "Sales unit",
+				      "gridlines": {
+				        "count": 6
+				      }
+				    },
+				    "hAxis": {
+				      "title": "Date"
+				    }
+				  },
+				  "formatters": {},
+				  "displayed": true
+				}
+	    return chart;
 	};
 
 });

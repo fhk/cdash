@@ -8,6 +8,7 @@ var app = angular
     'firebase',
     'toaster',
     'angularMoment',
+    'googlechart'
   ])
   .constant('FURL', 'https://cdash.firebaseio.com/')
   .run(function($rootScope, $location) {
