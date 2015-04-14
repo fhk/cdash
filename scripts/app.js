@@ -19,16 +19,32 @@ var app = angular
         $location.path("/login");
       }
     });
-  })  
+  })
   .config(function ($routeProvider) {
-    $routeProvider      
+    $routeProvider
       .when('/', {
         templateUrl: 'views/browse.html',
-        controller: 'BrowseController'     
+        controller: 'BrowseController',
+        resolve: {
+          currentAuth: function(Auth) {
+            return Auth.requireAuth();
+          }
+        }
+      })
+      .otherwise({
+        redirectTo: '/register'
       })
       .when('/browse/:metricId', {
         templateUrl: 'views/browse.html',
-        controller: 'BrowseController'
+        controller: 'BrowseController',
+        resolve: {
+          currentAuth: function(Auth) {
+            return Auth.requireAuth();
+          }
+        }
+      })
+      .otherwise({
+        redirectTo: '/register'
       })
       .when('/register', {
         templateUrl: 'views/register.html',
