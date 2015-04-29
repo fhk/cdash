@@ -28,6 +28,15 @@ var app = angular
         resolve: {
           currentAuth: function(Auth) {
             return Auth.requireAuth();
+          },
+        }
+      })
+      .when('/trending', {
+        templateUrl: 'views/trending.html',
+        controller: 'BrowseController',
+        resolve: {
+          currentAuth: function(Auth) {
+            return Auth.requireAuth();
           }
         }
       })

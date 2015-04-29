@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('BrowseController', function($scope, $routeParams, toaster, Metric, Auth, Comment) {
+app.controller('BrowseController', function($scope, $routeParams, toaster, Metric, Auth, UserMetric, Comment) {
 
 	$scope.searchMetric = '';		
 	$scope.metrics = Metric.all;
@@ -28,6 +28,14 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Metri
 		$scope.comments = Comment.comments(metric.$id);	
 
 	}
+
+	// --------- ADD METRIC TO DASH ----------
+
+	$scope.addMetric = function() {
+		UserMetric.addMetric($scope.selectedMetric.$id);
+		console.log("123");
+	};
+
 	// --------------- COMMENT ---------------	
 
 	$scope.addComment = function() {

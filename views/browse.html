@@ -46,9 +46,12 @@
 					
 					<span>
 						Source: <a href={{selectedMetric.source}}>{{selectedMetric.source}}</a>
-						<button type="button" class="btn btn-info" style="float: right">
-						  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add to Dash
-						</button>
+
+						<form ng-submit="addMetric()">	
+							<button style="float: right" type="submit" class="btn btn-info">
+							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add to Dash
+							</button>
+						</form>
 					</span>								
 				</div>
 				<div class="col-md-4 title">
@@ -116,7 +119,6 @@
 												</div>
 									      <input type="text" ng-model="content" cols="10" rows="3" class="form-control" placeholder="Comment here..." required><br>
 									    </div>
-
 											<button style="float: right" type="submit" class="btn btn-info">
 											<span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment
 											</button>
