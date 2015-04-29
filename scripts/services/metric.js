@@ -11,6 +11,9 @@ app.factory('Metric', function(FURL, $firebase, Auth) {
 		getMetric: function(metricId) {
 			return $firebase(ref.child('metrics').child(metricId));
 		},
+		getChart: function(metricId) {
+			return $firebase(ref.child('metrics').child(metricId).child('chart'));
+		},
 	};
 
 	return Metric;
