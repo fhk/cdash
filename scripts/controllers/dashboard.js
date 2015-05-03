@@ -7,4 +7,6 @@ app.controller('DashboardController', function($scope, Dashboard) {
     }
 
 	$scope.userMetrics = Dashboard.getChart()
+
+    
 });
