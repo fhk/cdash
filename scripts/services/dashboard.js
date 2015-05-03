@@ -15,7 +15,7 @@ app.factory('Dashboard', function(FURL, $firebase, Metric, Auth) {
 });
 
 app.directive('mymetrics', function () {
-    var myMetrics = {
+    return {
         restrict: 'E',
         link: function (scope, element, attrs) {
             angular.forEach(scope[attrs.user_metrics], function (value, key) {
@@ -27,9 +27,8 @@ app.directive('mymetrics', function () {
                 html += '</iframe>';
                 console.log(metric)
                 element.append(html)
+                $compile(element.contents())(scope);
                 });
         }
-    }
-
-    return myMetrics
+    };
 });

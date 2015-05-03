@@ -14,7 +14,7 @@
 				</div>
 				
 				<!-- METRIC LIST -->	
-				<a ng-repeat="metric in metrics | filter: {title: searchMetric} | orderBy: 'metric.rank':true" ng-href="#/browse/{{metric.$id}}">
+				<a ng-repeat="metric in metrics | filter: {name: searchMetric} | orderBy: 'metric.rank':true" ng-href="#/browse/{{metric.$id}}">
 					<div class="list-group-item">
 				        <div class="row-content">
 				            <h4 class="list-group-item-heading">{{metric.name | limitTo:25}}{{ metric.name.length > 25? "..." : ""}}</h4>

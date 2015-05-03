@@ -16,6 +16,7 @@
       
       <ul class="nav navbar-nav navbar-left">
         <li><a href="#/browse">Browse Metrics</a></li>
+        <li ng-show="signedIn()"><a href="" data-toggle="modal" data-target="#posModal">Add a Metric</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-left">
         <li><a href="#/dashboard">Dashboard</a></li>
@@ -49,6 +50,7 @@
   </div><!-- /.container-fluid -->
 
   <div ng-show="signedIn()" ng-include="'views/partials/changepass.html'"></div>
+  <div ng-show="signedIn()" ng-include="'views/partials/post.html'"></div>
 
 </nav>
 
