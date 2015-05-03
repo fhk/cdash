@@ -1,12 +1,5 @@
 'use strict';
 
-app.controller('DashboardController', function($scope, Dashboard, Auth) {
-
-	$scope.metricSaved = [];
-
-	var uid = Auth.user.uid;
-
-	Dashboard.getMetricsForUser(uid).then(function(metrics) {
-	});
-	
+app.controller('DashboardController', function($scope, Dashboard) {
+	$scope.dashChart = Dashboard.getChart()
 });

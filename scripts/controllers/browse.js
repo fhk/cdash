@@ -1,10 +1,9 @@
 'use strict';
 
-app.controller('BrowseController', function($scope, $routeParams, toaster, Metric, Auth, UserMetric, Comment) {
+app.controller('BrowseController', function($scope, $sce, $routeParams, toaster, Metric, Auth, UserMetric, Comment) {
 
 	$scope.searchMetric = '';		
 	$scope.metrics = Metric.all;
-	$scope.chartObject = {}
 
 	$scope.user = Auth.user;
 	$scope.signedIn = Auth.signedIn;
@@ -13,14 +12,18 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Metri
 	
 	if($routeParams.metricId) {
 		var metric = Metric.getMetric($routeParams.metricId).$asObject();
-		var chart = createChart(metric)
+		var chart = Metric.getChart($routeParams.metricId).$asObject();
 		$scope.listMode = false;
 		setSelectedMetric(metric, chart);
-		$scope.chartObject = createChart();
-	}	
+	}
+
+  	$scope.trustSrc = function(src) {
+    	return $sce.trustAsResourceUrl(src);
+  	}
 		
-	function setSelectedMetric(metric, chart) {
+	function setSelectedMetric(metric) {
 		$scope.selectedMetric = metric;
+		$scope.chart = chart.value;
 	
 		// Get list of comments for the selected metric
 		$scope.comments = Comment.comments(metric.$id);	
@@ -47,10 +50,4 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Metri
 			$scope.content = '';		
 		});
 	};
-
-	function createChart() {
-		chart = Metric.getChart($routeParams.metricId).$asObject();
-	    return chart;
-	};
-
 });
