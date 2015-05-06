@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('BrowseController', function($scope, $sce, $routeParams, toaster, Metric, Auth, UserMetric, Comment) {
-	$scope.tags = [ 'cool', 'awesome', 'angular', 'directive', 'javascript', 'html' ];
+	$scope.tags = [ 'education', 'learning', 'S. 227', 'H.R. 970' ];
 
     $scope.searchMetric = '';        
     $scope.metrics = Metric.all;
