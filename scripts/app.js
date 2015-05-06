@@ -71,6 +71,27 @@ var app = angular
             return Auth.requireAuth();
           }
         }
+
+      })
+      .when('/metric_1', {
+        templateUrl: 'views/metric_1.html',
+        controller: 'BrowseController',
+        resolve: {
+          currentAuth: function(Auth) {
+            return Auth.requireAuth();
+          }
+        }
+
+      })
+      .when('/metric_2', {
+        templateUrl: 'views/metric_2.html',
+        controller: 'BrowseController',
+        resolve: {
+          currentAuth: function(Auth) {
+            return Auth.requireAuth();
+          }
+        }
+
       })
       .otherwise({
         redirectTo: '/'
