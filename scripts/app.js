@@ -23,7 +23,25 @@ var app = angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
+        templateUrl: 'views/topics.html',
+        controller: 'BrowseController',
+        resolve: {
+          currentAuth: function(Auth) {
+            return Auth.requireAuth();
+          },
+        }
+      })
+      .when('/browse', {
         templateUrl: 'views/browse.html',
+        controller: 'BrowseController',
+        resolve: {
+          currentAuth: function(Auth) {
+            return Auth.requireAuth();
+          },
+        }
+      })
+      .when('/topics', {
+        templateUrl: 'views/topics.html',
         controller: 'BrowseController',
         resolve: {
           currentAuth: function(Auth) {
@@ -63,8 +81,8 @@ var app = angular
         templateUrl: 'views/login.html',
         controller: 'AuthController'
       })
-      .when('/dashboard', {
-        templateUrl: 'views/dashboard.html',
+      .when('/collections', {
+        templateUrl: 'views/collections.html',
         controller: 'DashboardController',
         resolve: {
           currentAuth: function(Auth) {
@@ -94,6 +112,6 @@ var app = angular
 
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/trending'
       });
   });
