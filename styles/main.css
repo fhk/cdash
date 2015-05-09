@@ -151,13 +151,16 @@ html, body{
     margin-top: 100%;
 }
 .thumbnail {
+    border: 0px;
     position: absolute;
     top: 15px;
     bottom: 0;
     left: 15px;
     right: 0;
     text-align:center;
-    padding-top:calc(50% - 30px);
+    padding-top:calc(50% - 100px);
+    color: #8792a4;
+;
 }
 
 html, body { height: 100%; margin: 0; padding: 0; }
@@ -167,3 +170,7 @@ header, footer { background: red; height: 50px; }
 section { float: left; overflow: auto; height: 100%; }
 #left, #right { background: blue; width: 100px; }
 #center { background: green; width: 300px; }
+
+span.glyphicon {
+    font-size: 8px;  
+}
