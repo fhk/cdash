@@ -1,5 +1,5 @@
 body {
-  background: #F3F3F3;
+  background: #FFF;
 }
 
 p {
@@ -11,6 +11,9 @@ a, a:hover, a:focus {
 }
 
 
+.btn-info {
+  background-color: #6E9E9C;
+}
 
 /* Form */
 
@@ -24,10 +27,27 @@ a, a:hover, a:focus {
 
 .navbar {
   margin-bottom: 0px;
+  background-color: #6E9E9C;
+}
+
+.jumbotron {
+  height: 100%;
+}
+
+.input-group {
+  padding-left: 70px;
 }
 
 .title {
   text-align: left;
+}
+
+.collection {
+  float: left;
+  padding: 10px;
+  background-color: #FAFAFA;
+  margin: 10px;
+
 }
 
 .img-circle.gravatar {
@@ -38,6 +58,14 @@ a, a:hover, a:focus {
 
 .panel-title {
   font-weight: bold;
+}
+
+.panel.panel-piece {
+  background-color: #FAFAFA;
+}
+
+.panel {
+  box-shadow: none;
 }
 
 .img-browse {
@@ -69,10 +97,9 @@ a, a:hover, a:focus {
 }
 
 /* Metric List */
-
 .list-group .list-group-item .row-picture img {
   width: 50px;
-  height: 50px;
+  height: 10px;
 }
 
 .list-group .list-group-item .list-group-item-heading {
@@ -80,13 +107,14 @@ a, a:hover, a:focus {
   font-size: 15px;
   font-weight: bold;
   line-height: 15px;
+  padding-left: 85px;
+  padding-top: 25px;
 }
 
 .list-group .list-group-item .row-content {
   float: left;
   margin-top: 0;
-  width: 40%;
-  width: calc(100% - 160px);
+  width: 100%;
   height: 60px;
 }
 
@@ -103,6 +131,7 @@ a, a:hover, a:focus {
   font-size: 12px;
   margin-bottom: 0;
   line-height: 1.3;
+
 }
 
 /* Comments */
@@ -173,4 +202,15 @@ section { float: left; overflow: auto; height: 100%; }
 
 span.glyphicon {
     font-size: 8px;  
+}
+
+.leftnav {
+   border-right: solid #A8A8A8  1px;
+   margin-right: 30px;
+   height: 800px;
+   background-color: #f8f8f8 ;
+}
+
+.leftnavselected {
+   background-color: #DADADA ;
 }

@@ -1,41 +1,46 @@
     <!-- RIGHT PANEL -->
 <div class="row">
-    
     <!-- HEADER -->
     <div class="form">
-
-            <span>
-                
-
-                <form ng-submit="addMetric()">  
-                    <button style="float: right" type="submit" class="btn btn-info">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add to Dash
-                    </button>
-                </form>
-            </span>                             
+        <h2 class="title">Graduation Rates</h2>
         </div>
         <div class="col-md-4 title">
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
+        <div class="col-md-6">
+            <div class="panel panel-piece">
+                <span>                      
+                    <form ng-submit="addMetric()">  
+                        <button style="float: right" type="submit" class="btn btn-info">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add to Collection
+                        </button>
+                    </form>
+                </span>  
                 <div class="panel-body">
                     <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 854px; height: 742px;'><noscript><a href='#'><img alt='GradRAtes ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Gr&#47;GraduationRatesbyEthnicity&#47;GradRAtes&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='854' height='742' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='GraduationRatesbyEthnicity&#47;GradRAtes' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Gr&#47;GraduationRatesbyEthnicity&#47;GradRAtes&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showVizHome' value='no' /><param name='showTabs' value='y' /><param name='bootstrapWhenNotified' value='true' /></object></div>
+                    <div class="panel-body"> <br>
+                    <h4>Source: US Census Bureau: http://www.census.gov/govs/school/</h4> <br>
+                    <tag-manager tags="tags"></tag-manager>                                       
+                </div>
             </div>
         </div>
     </div>
-    <tag-manager tags="tags"></tag-manager>
-    <div Source: <a href=source>{{ metric.source }}</a></div>
     <!-- DESCRIPTION -->
     <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Description</h3>
-                </div>
-                    <div class="panel-body">
-                    {{ description }}
+        <div class="col-md-6">
+            <div class="panel panel-piece">
+                <span>                      
+                    <form ng-submit="addMetric()">  
+                        <button style="float: right" type="submit" class="btn btn-info">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add to Collection
+                        </button>
+                    </form>
+                </span>  
+                <div class="panel-body">
+                    <img src="images/grad_lines.png">
+                    <h4>Source: US Census Bureau: http://www2.census.gov/govs/school/12f33pub.pdf</h4> <br>
+                    <tag-manager tags="tags"></tag-manager>
                 </div>
             </div>          
         </div>  

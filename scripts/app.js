@@ -23,7 +23,7 @@ var app = angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/topics.html',
+        templateUrl: 'views/browse.html',
         controller: 'BrowseController',
         resolve: {
           currentAuth: function(Auth) {
@@ -112,6 +112,6 @@ var app = angular
 
       })
       .otherwise({
-        redirectTo: '/trending'
+        redirectTo: '/topics'
       });
   });
