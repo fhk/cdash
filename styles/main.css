@@ -30,8 +30,8 @@ a, a:hover, a:focus {
   background-color: #6E9E9C;
 }
 
-.jumbotron {
-  height: 100%;
+.footer-jumbotron {
+  display: none;
 }
 
 .input-group {
@@ -45,7 +45,7 @@ a, a:hover, a:focus {
 .collection {
   float: left;
   padding: 10px;
-  background-color: #FAFAFA;
+  background-color: #E2E2E2;
   margin: 10px;
 
 }
@@ -70,6 +70,10 @@ a, a:hover, a:focus {
 
 .img-browse {
   padding-top: 30px;
+}
+
+.panel-body {
+  width: 100%;
 }
 
 .panel-success > .panel-heading .badge {
