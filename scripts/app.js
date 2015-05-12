@@ -23,7 +23,7 @@ var app = angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/browse.html',
+        templateUrl: 'views/topics.html',
         controller: 'BrowseController',
         resolve: {
           currentAuth: function(Auth) {

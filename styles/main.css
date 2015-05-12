@@ -30,8 +30,8 @@ a, a:hover, a:focus {
   background-color: #6E9E9C;
 }
 
-.footer-jumbotron {
-  display: none;
+.jumbotron {
+  box-shadow: none;
 }
 
 .input-group {
@@ -61,7 +61,7 @@ a, a:hover, a:focus {
 }
 
 .panel.panel-piece {
-  background-color: #FAFAFA;
+  background-color: #E2E2E2;
 }
 
 .panel {
